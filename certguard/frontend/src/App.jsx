@@ -4,34 +4,183 @@ import ManagerDashboard from './ManagerDashboard'
 
 const CERTIFICATIONS = [
   {
+    id: "az-900",
+    name: "AZ-900: Microsoft Azure Fundamentals",
+    level: "Fundamentals",
+    badge_color: "#107c41", // Green
+    required_skills: [
+      "cloud_concepts",
+      "azure_architecture_services",
+      "azure_management_governance",
+      "azure_security_compliance"
+    ]
+  },
+  {
+    id: "az-104",
+    name: "AZ-104: Microsoft Azure Administrator",
+    level: "Associate",
+    badge_color: "#0078d4", // MS Blue
+    required_skills: [
+      "azure_identities_governance",
+      "azure_storage_implementation",
+      "azure_compute_resources",
+      "azure_virtual_networking",
+      "azure_resource_monitoring"
+    ]
+  },
+  {
+    id: "az-204",
+    name: "AZ-204: Developing Solutions for Microsoft Azure",
+    level: "Associate",
+    badge_color: "#0078d4",
+    required_skills: [
+      "azure_compute_solutions",
+      "azure_storage_development",
+      "azure_security_implementation",
+      "azure_monitoring_troubleshooting",
+      "third_party_services_integration"
+    ]
+  },
+  {
+    id: "az-305",
+    name: "AZ-305: Designing Microsoft Azure Infrastructure Solutions",
+    level: "Expert",
+    badge_color: "#f5a623", // Gold
+    required_skills: [
+      "identity_governance_design",
+      "data_storage_design",
+      "business_continuity_design",
+      "infrastructure_design"
+    ]
+  },
+  {
+    id: "az-400",
+    name: "AZ-400: Designing and Implementing Microsoft DevOps Solutions",
+    level: "Expert",
+    badge_color: "#f5a623",
+    required_skills: [
+      "devops_instrumentation",
+      "site_reliability_engineering",
+      "security_compliance",
+      "source_control",
+      "continuous_integration",
+      "continuous_delivery"
+    ]
+  },
+  {
+    id: "az-500",
+    name: "AZ-500: Microsoft Azure Security Technologies",
+    level: "Associate",
+    badge_color: "#0078d4",
+    required_skills: [
+      "identity_access_management",
+      "platform_protection",
+      "security_operations",
+      "secure_data_applications"
+    ]
+  },
+  {
     id: "dp-203",
-    name: "Azure Data Engineer Associate",
-    required_skills: ["python", "sql", "azure", "databricks", "azure_data_factory", "azure_data_lake", "synapse"]
+    name: "DP-203: Microsoft Azure Data Engineering",
+    level: "Associate",
+    badge_color: "#0078d4",
+    required_skills: [
+      "data_storage_design",
+      "data_processing_development",
+      "data_security_optimization",
+      "data_storage_processing_monitoring"
+    ]
   },
   {
-    id: "saa-c03",
-    name: "AWS Certified Solutions Architect - Associate",
-    required_skills: ["aws", "ec2", "s3", "rds", "vpc", "iam", "serverless"]
+    id: "dp-420",
+    name: "DP-420: Designing and Implementing Cloud-Native Applications Using Microsoft Azure Cosmos DB",
+    level: "Specialty",
+    badge_color: "#8660a9", // Purple
+    required_skills: [
+      "cosmosdb_data_modeling",
+      "cosmosdb_partitioning",
+      "cosmosdb_replication",
+      "cosmosdb_query_tuning",
+      "cosmosdb_sdk_integration"
+    ]
   },
   {
-    id: "pcap",
-    name: "Python Certified Associate Programmer (PCAP)",
-    required_skills: ["python", "oop", "modules", "exceptions", "testing"]
+    id: "ai-102",
+    name: "AI-102: Designing and Implementing a Microsoft Azure AI Solution",
+    level: "Associate",
+    badge_color: "#0078d4",
+    required_skills: [
+      "azure_ai_services",
+      "natural_language_processing",
+      "computer_vision_solutions",
+      "generative_ai_integration"
+    ]
   }
 ];
 
 const ALL_SKILLS = [
-  "python", "sql", "azure", "databricks", "azure_data_factory", "azure_data_lake", "synapse",
-  "aws", "ec2", "s3", "rds", "vpc", "iam", "serverless",
-  "oop", "modules", "exceptions", "testing"
+  "cloud_concepts",
+  "azure_architecture_services",
+  "azure_management_governance",
+  "azure_security_compliance",
+  "azure_identities_governance",
+  "azure_storage_implementation",
+  "azure_compute_resources",
+  "azure_virtual_networking",
+  "azure_resource_monitoring",
+  "azure_compute_solutions",
+  "azure_storage_development",
+  "azure_security_implementation",
+  "azure_monitoring_troubleshooting",
+  "third_party_services_integration",
+  "identity_governance_design",
+  "data_storage_design",
+  "business_continuity_design",
+  "infrastructure_design",
+  "devops_instrumentation",
+  "site_reliability_engineering",
+  "security_compliance",
+  "source_control",
+  "continuous_integration",
+  "continuous_delivery",
+  "identity_access_management",
+  "platform_protection",
+  "security_operations",
+  "secure_data_applications",
+  "data_processing_development",
+  "data_security_optimization",
+  "data_storage_processing_monitoring",
+  "cosmosdb_data_modeling",
+  "cosmosdb_partitioning",
+  "cosmosdb_replication",
+  "cosmosdb_query_tuning",
+  "cosmosdb_sdk_integration",
+  "azure_ai_services",
+  "natural_language_processing",
+  "computer_vision_solutions",
+  "generative_ai_integration"
+];
+
+const PRESET_LEARNERS = [
+  { name: "Alice Developer", cert_id: "az-204", skills: ["azure_compute_solutions", "third_party_services_integration"] },
+  { name: "Bob Architect", cert_id: "az-305", skills: ["identity_governance_design", "infrastructure_design"] },
+  { name: "Charlie Data", cert_id: "dp-203", skills: ["data_storage_design", "data_processing_development"] },
+  { name: "David Admin", cert_id: "az-104", skills: ["azure_identities_governance", "azure_storage_implementation"] },
+  { name: "Emma SecOps", cert_id: "az-500", skills: ["identity_access_management", "platform_protection"] },
+  { name: "Frank DevOps", cert_id: "az-400", skills: ["source_control", "continuous_integration"] },
+  { name: "Grace Cosmos", cert_id: "dp-420", skills: ["cosmosdb_data_modeling", "cosmosdb_partitioning"] },
+  { name: "Harry AI", cert_id: "ai-102", skills: ["azure_ai_services", "generative_ai_integration"] },
+  { name: "Irene Student", cert_id: "az-900", skills: ["cloud_concepts"] },
+  { name: "Jack Engineer", cert_id: "dp-203", skills: ["data_security_optimization", "data_processing_development"] }
 ];
 
 const API_BASE = import.meta.env.VITE_API_BASE || "http://127.0.0.1:8000";
 
 function App() {
-  const [learnerName, setLearnerName] = useState("Alice Developer");
-  const [selectedCert, setSelectedCert] = useState(CERTIFICATIONS[0]);
-  const [currentSkills, setCurrentSkills] = useState(["python", "sql", "testing"]);
+  const [selectedProfileIndex, setSelectedProfileIndex] = useState(0);
+  const [learnerName, setLearnerName] = useState(PRESET_LEARNERS[0].name);
+  const [selectedCert, setSelectedCert] = useState(CERTIFICATIONS.find(c => c.id === PRESET_LEARNERS[0].cert_id) || CERTIFICATIONS[0]);
+  const [currentSkills, setCurrentSkills] = useState(PRESET_LEARNERS[0].skills);
   
   // Pipeline status states
   const [isEvaluating, setIsEvaluating] = useState(false);
@@ -87,18 +236,23 @@ function App() {
     }
   };
 
+  const handlePresetSelect = (index) => {
+    setSelectedProfileIndex(index);
+    if (index === -1) {
+      // Manual edit
+      return;
+    }
+    const preset = PRESET_LEARNERS[index];
+    setLearnerName(preset.name);
+    setCurrentSkills(preset.skills);
+    const cert = CERTIFICATIONS.find(c => c.id === preset.cert_id);
+    if (cert) setSelectedCert(cert);
+  };
+
   const selectCertById = (id) => {
     const cert = CERTIFICATIONS.find(c => c.id === id);
     setSelectedCert(cert);
-    
-    // Auto-fill some relevant skills to make it interactive and convenient
-    if (id === "dp-203") {
-      setCurrentSkills(["python", "sql", "testing"]);
-    } else if (id === "saa-c03") {
-      setCurrentSkills(["aws", "s3", "iam"]);
-    } else if (id === "pcap") {
-      setCurrentSkills(["python", "modules"]);
-    }
+    setSelectedProfileIndex(-1); // Switch to manual edit mode
   };
 
   const runEvaluation = async () => {
@@ -123,7 +277,6 @@ function App() {
       }
     };
 
-    // Start fetching request in background
     let apiData = null;
     let apiError = null;
     
@@ -139,7 +292,6 @@ function App() {
     .then(data => { apiData = data; })
     .catch(err => { apiError = err; });
 
-    // Step simulation times
     const stepTimes = [800, 1200, 1000, 800, 600];
     
     for (let step = 1; step <= 5; step++) {
@@ -150,7 +302,6 @@ function App() {
         return next;
       });
 
-      // Wait for the duration of the current step
       await new Promise(resolve => setTimeout(resolve, stepTimes[step - 1]));
 
       setStepStatuses(prev => {
@@ -160,7 +311,6 @@ function App() {
       });
     }
 
-    // Await API response if it hasn't completed yet
     await apiPromise;
 
     if (apiError) {
@@ -174,26 +324,27 @@ function App() {
     setActiveTab("overview");
   };
 
-  // Radial dash offset calculation
   const getRadialOffset = (confidence) => {
     const radius = 32;
     const circumference = 2 * Math.PI * radius;
     return circumference - (confidence * circumference);
   };
 
+  const formatSkillName = (skill) => {
+    return skill.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  };
+
   return (
     <div className="app-container">
-
       <header className="app-header">
         <div className="logo-container">
           <div className="logo-icon">CG</div>
           <div className="logo-text">
             <h1>CertGuard</h1>
-            <p>Multi-Agent Certification Readiness System</p>
+            <p>Microsoft Azure Agentic Certification Readiness Advisor</p>
           </div>
         </div>
         <div className="header-actions" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          {/* App-level view switcher */}
           <div style={{
             display: 'flex', background: 'rgba(255,255,255,0.04)',
             border: '1px solid var(--border-color)', borderRadius: '10px', padding: '4px', gap: '4px'
@@ -261,18 +412,35 @@ function App() {
           </h2>
 
           <div className="form-group">
+            <label className="form-label">Profile Template</label>
+            <select 
+              className="form-input"
+              value={selectedProfileIndex} 
+              onChange={(e) => handlePresetSelect(Number(e.target.value))}
+            >
+              {PRESET_LEARNERS.map((preset, idx) => (
+                <option key={idx} value={idx}>{preset.name} ({preset.cert_id.toUpperCase()})</option>
+              ))}
+              <option value={-1}>Custom / Manual Entry</option>
+            </select>
+          </div>
+
+          <div className="form-group">
             <label className="form-label">Learner Name</label>
             <input 
               type="text" 
               className="form-input" 
               value={learnerName} 
-              onChange={(e) => setLearnerName(e.target.value)} 
+              onChange={(e) => {
+                setLearnerName(e.target.value);
+                setSelectedProfileIndex(-1);
+              }} 
               placeholder="e.g. Alice Developer"
             />
           </div>
 
           <div className="form-group">
-            <label className="form-label">Target Certification</label>
+            <label className="form-label">Target Microsoft Certification</label>
             <select 
               className="form-input" 
               value={selectedCert.id} 
@@ -299,21 +467,24 @@ function App() {
                   <label 
                     key={skill} 
                     className={`skill-checkbox-label ${isChecked ? 'checked' : ''}`}
-                    style={{ borderRight: isRequired ? '2px solid rgba(168, 85, 247, 0.4)' : 'none' }}
+                    style={{ borderRight: isRequired ? `2px solid ${selectedCert.badge_color}` : 'none' }}
                   >
                     <input 
                       type="checkbox" 
                       checked={isChecked} 
-                      onChange={() => toggleSkill(skill)}
+                      onChange={() => {
+                        toggleSkill(skill);
+                        setSelectedProfileIndex(-1);
+                      }}
                     />
                     <div className="skill-checkbox-indicator" />
-                    <span>{skill}</span>
+                    <span>{formatSkillName(skill)}</span>
                   </label>
                 );
               })}
             </div>
             <p style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '8px' }}>
-              * Purple right border indicates skill is required for selected certification.
+              * Border highlight indicates a required skill for the {selectedCert.level} level certification.
             </p>
           </div>
 
@@ -326,33 +497,33 @@ function App() {
             {isEvaluating ? (
               <>
                 <div className="spinner" />
-                Processing Pipeline...
+                Evaluating in Agents League...
               </>
             ) : (
               <>
                 <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
-                Run Assessment
+                Run Agent Assessment
               </>
             )}
           </button>
 
           {/* Doc Status Box */}
           <div className="doc-list-container">
-            <label className="form-label">Available Certification Docs ({documents.length})</label>
+            <label className="form-label">Available Microsoft Syllabus Guides ({documents.length})</label>
             <div className="doc-list">
               {documents.length > 0 ? (
                 documents.map(doc => (
                   <div key={doc.id} className="doc-item">
-                    <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <svg width="14" height="14" fill="none" stroke="#0078d4" strokeWidth="2" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                     <span>{doc.filename}</span>
                   </div>
                 ))
               ) : (
-                <div className="doc-item" style={{ color: 'var(--text-muted)' }}>No docs found. Click Index search docs.</div>
+                <div className="doc-item" style={{ color: 'var(--text-muted)' }}>No docs found. Click Index Docs to load.</div>
               )}
             </div>
           </div>
@@ -363,12 +534,12 @@ function App() {
           {/* 1. Pre-Run Empty State */}
           {!isEvaluating && !evaluationResult && (
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', minHeight: '400px', color: 'var(--text-secondary)' }}>
-              <svg width="64" height="64" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ color: 'rgba(255,255,255,0.1)', marginBottom: '16px' }}>
+              <svg width="64" height="64" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ color: 'rgba(0,120,212,0.1)', marginBottom: '16px' }}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
               </svg>
               <h3>No Evaluation Session Active</h3>
               <p style={{ maxWidth: '400px', textAlign: 'center', fontSize: '14px' }}>
-                Configure the learner profile and trigger the assessment to execute the 5-agent decision pipeline.
+                Configure the learner profile or select a template and trigger the assessment to execute the 5-agent decision pipeline.
               </p>
             </div>
           )}
@@ -377,7 +548,7 @@ function App() {
           {isEvaluating && (
             <div>
               <h2 className="card-title">
-                <div className="spinner" style={{ borderColor: 'rgba(168, 85, 247, 0.1)', borderTopColor: 'var(--color-primary)' }} />
+                <div className="spinner" style={{ borderColor: 'rgba(0, 120, 212, 0.1)', borderTopColor: 'var(--color-primary)' }} />
                 Agent Pipeline Execution
               </h2>
               <p style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>
@@ -401,11 +572,11 @@ function App() {
                 <div className={`step-row ${stepStatuses[1]}`}>
                   <div className="step-icon">2</div>
                   <div className="step-details">
-                    <div className="step-name">Verifier Agent</div>
-                    <div className="step-desc">Queries Azure AI Search for relevant syllabus resources and validates skills.</div>
+                    <div className="step-name">Verifier Agent (MCP Enhanced)</div>
+                    <div className="step-desc">Queries Microsoft Learn MCP endpoint & Azure Search live to ground syllabus.</div>
                   </div>
                   <div className="step-status-text">
-                    {stepStatuses[1] === "active" && "Searching Index..."}
+                    {stepStatuses[1] === "active" && "Querying MS Learn & Azure Search..."}
                     {stepStatuses[1] === "completed" && "Completed"}
                     {stepStatuses[1] === "pending" && "Queued"}
                   </div>
@@ -415,7 +586,7 @@ function App() {
                   <div className="step-icon">3</div>
                   <div className="step-details">
                     <div className="step-name">Critic Agent</div>
-                    <div className="step-desc">Evaluates the study hours and checks if goals are realistic.</div>
+                    <div className="step-desc">Evaluates study hours allocation and validates roadmap feasibility.</div>
                   </div>
                   <div className="step-status-text">
                     {stepStatuses[2] === "active" && "Critiquing Plan..."}
@@ -428,10 +599,10 @@ function App() {
                   <div className="step-icon">4</div>
                   <div className="step-details">
                     <div className="step-name">Judge Agent</div>
-                    <div className="step-desc">Reviews all insights and issues the final readiness verdict.</div>
+                    <div className="step-desc">Reviews all signals and outputs final readiness verdict.</div>
                   </div>
                   <div className="step-status-text">
-                    {stepStatuses[3] === "active" && "Judging..."}
+                    {stepStatuses[3] === "active" && "Judging Readiness..."}
                     {stepStatuses[3] === "completed" && "Completed"}
                     {stepStatuses[3] === "pending" && "Queued"}
                   </div>
@@ -441,10 +612,10 @@ function App() {
                   <div className="step-icon">5</div>
                   <div className="step-details">
                     <div className="step-name">Explainer Agent</div>
-                    <div className="step-desc">Assembles a customized timeline and feedback roadmap.</div>
+                    <div className="step-desc">Synthesizes timeline and custom learning roadmap.</div>
                   </div>
                   <div className="step-status-text">
-                    {stepStatuses[4] === "active" && "Generating Report..."}
+                    {stepStatuses[4] === "active" && "Generating Explanations..."}
                     {stepStatuses[4] === "completed" && "Finished"}
                     {stepStatuses[4] === "pending" && "Queued"}
                   </div>
@@ -486,6 +657,7 @@ function App() {
                 <button className={`tab-btn ${activeTab === 'timeline' ? 'active' : ''}`} onClick={() => setActiveTab('timeline')}>Study Roadmap</button>
                 <button className={`tab-btn ${activeTab === 'resources' ? 'active' : ''}`} onClick={() => setActiveTab('resources')}>Learning Materials</button>
                 <button className={`tab-btn ${activeTab === 'passages' ? 'active' : ''}`} onClick={() => setActiveTab('passages')}>Search Context</button>
+                <button className={`tab-btn ${activeTab === 'debate' ? 'active' : ''}`} onClick={() => setActiveTab('debate')}>🗣️ Debate Trace</button>
               </div>
 
               {/* Tab 1: Overview */}
@@ -493,7 +665,7 @@ function App() {
                 <div>
                   <div className="stats-grid">
                     <div className="stat-box">
-                      <div className="stat-val" style={{ color: 'var(--color-danger)' }}>
+                      <div className="stat-val" style={{ color: '#ef4444' }}>
                         {evaluationResult.gap_analysis.weak_skills.length}
                       </div>
                       <div className="stat-label">Missing Skills</div>
@@ -507,15 +679,15 @@ function App() {
                     <div className="stat-box" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '8px 16px' }}>
                       <div className="radial-progress-container">
                         <svg className="radial-progress-svg">
-                          <circle className="radial-progress-bg" cx="40" cy="40" r="32" />
-                          <circle 
+                           <circle className="radial-progress-bg" cx="40" cy="40" r="32" />
+                           <circle 
                             className="radial-progress-fill" 
                             cx="40" 
                             cy="40" 
                             r="32" 
                             strokeDasharray={2 * Math.PI * 32}
                             strokeDashoffset={getRadialOffset(evaluationResult.judge.confidence)}
-                          />
+                           />
                         </svg>
                         <div className="radial-progress-text">{Math.round(evaluationResult.judge.confidence * 100)}%</div>
                       </div>
@@ -573,7 +745,7 @@ function App() {
                         <div key={idx} className="resource-card">
                           <div className="resource-header">
                             <span className="resource-title">{res.resource}</span>
-                            <span className="resource-skill">{res.skill}</span>
+                            <span className="resource-skill">{formatSkillName(res.skill)}</span>
                           </div>
                           <span className="resource-desc">{res.description}</span>
                         </div>
@@ -590,14 +762,14 @@ function App() {
                 <div>
                   <h3 style={{ fontSize: '16px', marginBottom: '10px' }}>Search Context Passages</h3>
                   <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '20px' }}>
-                    Passages retrieved from the Azure AI Search index for context matching:
+                    Passages retrieved from the Microsoft Learn MCP server and Azure Search index for syllabus grounding:
                   </p>
 
                   {evaluationResult.verification.search_context && evaluationResult.verification.search_context.length > 0 ? (
                     evaluationResult.verification.search_context.map((passage, idx) => (
                       <div key={idx} className="passage-card">
                         <div className="passage-meta">
-                          <span>Source: <strong>{passage.filename}</strong></span>
+                          <span>Source: <a href={passage.filename} target="_blank" rel="noreferrer" style={{ color: 'var(--color-primary)', textDecoration: 'underline' }}>{passage.filename.startsWith('http') ? 'Microsoft Learn Link' : passage.filename}</a></span>
                           <span style={{ textTransform: 'capitalize' }}>Category: {passage.category}</span>
                         </div>
                         <pre className="passage-content">{passage.content}</pre>
@@ -606,6 +778,90 @@ function App() {
                   ) : (
                     <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>No search context passages retrieved.</p>
                   )}
+                </div>
+              )}
+
+              {/* Tab 5: Debate Trace */}
+              {activeTab === 'debate' && (
+                <div className="debate-trace-container">
+                  <h3 style={{ fontSize: '16px', marginBottom: '10px' }}>Pipeline Reasoner & Debate Transcript</h3>
+                  <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '20px' }}>
+                    Follow the reasoning loop across the 5 specialized agents that audited this learner's readiness:
+                  </p>
+
+                  <div className="debate-transcript">
+                    {/* Agent 1 */}
+                    <div className="debate-speech-bubble gap-extractor">
+                      <div className="agent-avatar">🔍</div>
+                      <div className="speech-content">
+                        <div className="agent-meta">Agent 1: Gap Extractor</div>
+                        <div className="agent-text">
+                          <p><strong>Analysis:</strong> I compared {evaluationResult.learner_name}'s verified profile against the {evaluationResult.certification} requirement matrix.</p>
+                          <ul>
+                            <li><strong>Score Gap:</strong> {evaluationResult.gap_analysis.score_gap} missing elements.</li>
+                            <li><strong>Weak Skills Pinpointed:</strong> {evaluationResult.gap_analysis.weak_skills.map(s => formatSkillName(s)).join(', ') || 'None!'}</li>
+                            <li><strong>Calculated Budget:</strong> {evaluationResult.gap_analysis.study_hours} hours required to close the gap.</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Agent 2 */}
+                    <div className="debate-speech-bubble verifier">
+                      <div className="agent-avatar">🛡️</div>
+                      <div className="speech-content">
+                        <div className="agent-meta">Agent 2: Verifier Agent (MCP Grounded)</div>
+                        <div className="agent-text">
+                          <p><strong>Analysis:</strong> I ran validation checks on the weak skills using the <strong>Microsoft Learn MCP endpoint</strong> and Azure Search indexes.</p>
+                          <p><strong>Status:</strong> {evaluationResult.verification.is_valid ? '✅ Gaps Validated Against Syllabus' : '⚠️ Gaps Discrepancy Found'}</p>
+                          <p><strong>Details:</strong> {evaluationResult.verification.verification_details}</p>
+                          <p><strong>Resources Matched:</strong> Loaded {evaluationResult.verification.annotated_resources ? evaluationResult.verification.annotated_resources.length : 0} study guides.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Agent 3 */}
+                    <div className="debate-speech-bubble critic">
+                      <div className="agent-avatar">⚖️</div>
+                      <div className="speech-content">
+                        <div className="agent-meta">Agent 3: Critic Agent</div>
+                        <div className="agent-text">
+                          <p><strong>Analysis:</strong> I ran an audit on the learning strategy and the hours budget.</p>
+                          <p><strong>Findings:</strong> {evaluationResult.critic.criticism}</p>
+                          <ul>
+                            <li><strong>Score Gap Valid:</strong> {evaluationResult.critic.score_gap_valid ? 'Yes' : 'No'}</li>
+                            <li><strong>Hours Realistic:</strong> {evaluationResult.critic.study_hours_realistic ? 'Yes' : 'No'}</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Agent 4 */}
+                    <div className="debate-speech-bubble judge">
+                      <div className="agent-avatar">🏛️</div>
+                      <div className="speech-content">
+                        <div className="agent-meta">Agent 4: Judge Agent</div>
+                        <div className="agent-text">
+                          <p><strong>Analysis:</strong> I examined the arguments from the Gap Extractor, Verifier, and Critic.</p>
+                          <p><strong>Readiness Verdict:</strong> <span className={`verdict-text ${evaluationResult.judge.decision === 'Ready' ? 'ready' : 'not-ready'}`}>{evaluationResult.judge.decision}</span></p>
+                          <p><strong>Confidence Metric:</strong> {(evaluationResult.judge.confidence * 100).toFixed(0)}%</p>
+                          <p><strong>Justification Summary:</strong> {evaluationResult.judge.justification}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Agent 5 */}
+                    <div className="debate-speech-bubble explainer">
+                      <div className="agent-avatar">📝</div>
+                      <div className="speech-content">
+                        <div className="agent-meta">Agent 5: Explainer Agent</div>
+                        <div className="agent-text">
+                          <p><strong>Analysis:</strong> I formulated the final coaching recommendations and converted the pipeline's findings into a friendly, structured format.</p>
+                          <p><strong>Action Plan Summary:</strong> {evaluationResult.explainer.report_summary}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )}
 

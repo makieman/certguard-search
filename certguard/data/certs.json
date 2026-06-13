@@ -1,0 +1,97 @@
+[
+  {
+    "id": "az-900",
+    "name": "AZ-900: Microsoft Azure Fundamentals",
+    "required_skills": [
+      "cloud_concepts",
+      "azure_architecture_services",
+      "azure_management_governance",
+      "azure_security_compliance"
+    ]
+  },
+  {
+    "id": "az-104",
+    "name": "AZ-104: Microsoft Azure Administrator",
+    "required_skills": [
+      "azure_identities_governance",
+      "azure_storage_implementation",
+      "azure_compute_resources",
+      "azure_virtual_networking",
+      "azure_resource_monitoring"
+    ]
+  },
+  {
+    "id": "az-204",
+    "name": "AZ-204: Developing Solutions for Microsoft Azure",
+    "required_skills": [
+      "azure_compute_solutions",
+      "azure_storage_development",
+      "azure_security_implementation",
+      "azure_monitoring_troubleshooting",
+      "third_party_services_integration"
+    ]
+  },
+  {
+    "id": "az-305",
+    "name": "AZ-305: Designing Microsoft Azure Infrastructure Solutions",
+    "required_skills": [
+      "identity_governance_design",
+      "data_storage_design",
+      "business_continuity_design",
+      "infrastructure_design"
+    ]
+  },
+  {
+    "id": "az-400",
+    "name": "AZ-400: Designing and Implementing Microsoft DevOps Solutions",
+    "required_skills": [
+      "devops_instrumentation",
+      "site_reliability_engineering",
+      "security_compliance",
+      "source_control",
+      "continuous_integration",
+      "continuous_delivery"
+    ]
+  },
+  {
+    "id": "az-500",
+    "name": "AZ-500: Microsoft Azure Security Technologies",
+    "required_skills": [
+      "identity_access_management",
+      "platform_protection",
+      "security_operations",
+      "secure_data_applications"
+    ]
+  },
+  {
+    "id": "dp-203",
+    "name": "DP-203: Microsoft Azure Data Engineering",
+    "required_skills": [
+      "data_storage_design",
+      "data_processing_development",
+      "data_security_optimization",
+      "data_storage_processing_monitoring"
+    ]
+  },
+  {
+    "id": "dp-420",
+    "name": "DP-420: Designing and Implementing Cloud-Native Applications Using Microsoft Azure Cosmos DB",
+    "required_skills": [
+      "cosmosdb_data_modeling",
+      "cosmosdb_partitioning",
+      "cosmosdb_replication",
+      "cosmosdb_query_tuning",
+      "cosmosdb_sdk_integration"
+    ]
+  },
+  {
+    "id": "ai-102",
+    "name": "AI-102: Designing and Implementing a Microsoft Azure AI Solution",
+    "required_skills": [
+      "azure_ai_services",
+      "natural_language_processing",
+      "computer_vision_solutions",
+      "generative_ai_integration"
+    ]
+  }
+]

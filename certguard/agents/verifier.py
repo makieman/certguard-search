@@ -1,6 +1,7 @@
 import os
 import json
 from typing import Dict, List, Any
+import httpx
 from azure.core.credentials import AzureKeyCredential
 from azure.search.documents import SearchClient
 from agents.llm import call_llm
@@ -15,6 +16,54 @@ class Verifier:
         self.key = os.getenv("AZURE_SEARCH_KEY")
         self.index_name = "certguard-index"
         
+    def _search_ms_learn(self, query: str) -> List[Dict[str, Any]]:
+        results = []
+        url = "https://learn.microsoft.com/api/mcp"
+        payload = {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "tools/call",
+            "params": {
+                "name": "microsoft_docs_search",
+                "arguments": {
+                    "query": query
+                }
+            }
+        }
+        try:
+            with httpx.Client(timeout=10.0) as client:
+                response = client.post(url, json=payload, headers={"Content-Type": "application/json"})
+                if response.status_code == 200:
+                    for line in response.text.splitlines():
+                        if line.startswith("data: "):
+                            data_str = line[6:].strip()
+                            data_json = json.loads(data_str)
+                            content_list = data_json.get("result", {}).get("content", [])
+                            for content_item in content_list:
+                                if content_item.get("type") == "text":
+                                    text_val = content_item.get("text", "")
+                                    try:
+                                        inner_json = json.loads(text_val)
+                                        search_results = inner_json.get("results", [])
+                                        for r in search_results:
+                                            results.append({
+                                                "title": r.get("title", "Microsoft Learn Documentation"),
+                                                "content": (r.get("content") or "")[:500] + "...",
+                                                "category": "Microsoft Learn",
+                                                "filename": r.get("contentUrl", "")
+                                            })
+                                    except Exception:
+                                        results.append({
+                                            "title": "Microsoft Learn Document",
+                                            "content": text_val[:500] + "...",
+                                            "category": "Microsoft Learn",
+                                            "filename": ""
+                                        })
+                            break
+        except Exception as e:
+            print(f"Microsoft Learn MCP search error: {e}")
+        return results[:3]
+
     def _search_azure(self, query: str) -> List[Dict[str, Any]]:
         results = []
         if not self.endpoint or not self.key:
@@ -86,8 +135,11 @@ class Verifier:
         # 1. Search documentation for each weak skill
         search_context = []
         for skill in weak_skills:
-            # Try Azure search first
-            results = self._search_azure(f"{certification} {skill}")
+            # Try MS Learn MCP search first (tier 0)
+            results = self._search_ms_learn(f"{certification} {skill}")
+            if not results:
+                # Try Azure search second
+                results = self._search_azure(f"{certification} {skill}")
             if not results:
                 # Fallback to local search
                 results = self._search_local(f"{certification} {skill}")

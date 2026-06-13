@@ -19,5 +19,54 @@
     "preferred_learning_slots": "18:00 - 20:00, Monday and Wednesday",
     "cognitive_peak_hours": "Evening (17:00 - 20:00)",
     "weekly_study_budget_hours": 10
+  },
+  "David Admin": {
+    "active_meeting_hours": "08:00 - 10:00, Tuesday to Thursday",
+    "dedicated_focus_hours": "11:00 - 15:00, Monday and Wednesday",
+    "preferred_learning_slots": "16:00 - 18:00, Wednesday and Friday",
+    "cognitive_peak_hours": "Morning (09:00 - 12:00)",
+    "weekly_study_budget_hours": 5
+  },
+  "Emma SecOps": {
+    "active_meeting_hours": "13:00 - 15:00, daily",
+    "dedicated_focus_hours": "08:00 - 12:00, Tuesday and Thursday",
+    "preferred_learning_slots": "07:00 - 08:30, Monday to Thursday",
+    "cognitive_peak_hours": "Early Morning (07:00 - 10:00)",
+    "weekly_study_budget_hours": 7
+  },
+  "Frank DevOps": {
+    "active_meeting_hours": "15:00 - 17:00, Monday and Wednesday",
+    "dedicated_focus_hours": "09:00 - 13:00, Tuesday and Friday",
+    "preferred_learning_slots": "18:30 - 20:30, Tuesday and Thursday",
+    "cognitive_peak_hours": "Night (19:00 - 22:00)",
+    "weekly_study_budget_hours": 9
+  },
+  "Grace Cosmos": {
+    "active_meeting_hours": "11:00 - 13:00, Monday and Thursday",
+    "dedicated_focus_hours": "14:00 - 17:00, Wednesday and Friday",
+    "preferred_learning_slots": "12:00 - 14:00, Tuesday and Thursday",
+    "cognitive_peak_hours": "Midday (11:00 - 14:00)",
+    "weekly_study_budget_hours": 6
+  },
+  "Harry AI": {
+    "active_meeting_hours": "10:00 - 12:00, Tuesday and Friday",
+    "dedicated_focus_hours": "13:00 - 16:00, Monday to Wednesday",
+    "preferred_learning_slots": "08:00 - 10:00, Saturday",
+    "cognitive_peak_hours": "Morning (08:00 - 11:00)",
+    "weekly_study_budget_hours": 12
+  },
+  "Irene Student": {
+    "active_meeting_hours": "None (Full-time study)",
+    "dedicated_focus_hours": "09:00 - 12:00, 13:00 - 16:00, Monday to Friday",
+    "preferred_learning_slots": "10:00 - 12:00, daily",
+    "cognitive_peak_hours": "Morning (09:00 - 12:00)",
+    "weekly_study_budget_hours": 20
+  },
+  "Jack Engineer": {
+    "active_meeting_hours": "09:00 - 11:00, daily",
+    "dedicated_focus_hours": "13:00 - 17:00, Monday to Thursday",
+    "preferred_learning_slots": "16:00 - 18:00, Friday",
+    "cognitive_peak_hours": "Afternoon (13:00 - 16:00)",
+    "weekly_study_budget_hours": 8
   }
 }

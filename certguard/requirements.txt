@@ -4,5 +4,5 @@ pydantic
 openai
 python-dotenv
 sqlalchemy
-chromadb
 azure-search-documents
+httpx

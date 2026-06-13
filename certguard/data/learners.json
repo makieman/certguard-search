@@ -1,0 +1,71 @@
+[
+  {
+    "name": "Alice Developer",
+    "skills": [
+      "azure_compute_solutions",
+      "third_party_services_integration"
+    ]
+  },
+  {
+    "name": "Bob Architect",
+    "skills": [
+      "identity_governance_design",
+      "infrastructure_design"
+    ]
+  },
+  {
+    "name": "Charlie Data",
+    "skills": [
+      "data_storage_design",
+      "data_processing_development"
+    ]
+  },
+  {
+    "name": "David Admin",
+    "skills": [
+      "azure_identities_governance",
+      "azure_storage_implementation"
+    ]
+  },
+  {
+    "name": "Emma SecOps",
+    "skills": [
+      "identity_access_management",
+      "platform_protection"
+    ]
+  },
+  {
+    "name": "Frank DevOps",
+    "skills": [
+      "source_control",
+      "continuous_integration"
+    ]
+  },
+  {
+    "name": "Grace Cosmos",
+    "skills": [
+      "cosmosdb_data_modeling",
+      "cosmosdb_partitioning"
+    ]
+  },
+  {
+    "name": "Harry AI",
+    "skills": [
+      "azure_ai_services",
+      "generative_ai_integration"
+    ]
+  },
+  {
+    "name": "Irene Student",
+    "skills": [
+      "cloud_concepts"
+    ]
+  },
+  {
+    "name": "Jack Engineer",
+    "skills": [
+      "data_security_optimization",
+      "data_processing_development"
+    ]
+  }
+]

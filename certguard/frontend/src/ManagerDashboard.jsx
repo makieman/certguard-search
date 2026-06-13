@@ -10,10 +10,10 @@ function VerdictBadge({ verdict }) {
   const isAbstain = v === 'abstain';
 
   const style = isReady
-    ? { background: 'rgba(16,185,129,0.12)', color: '#10b981', border: '1px solid rgba(16,185,129,0.35)' }
+    ? { background: 'rgba(16,124,65,0.12)', color: '#107c41', border: '1px solid rgba(16,124,65,0.35)' }
     : isAbstain
-    ? { background: 'rgba(245,158,11,0.12)', color: '#f59e0b', border: '1px solid rgba(245,158,11,0.35)' }
-    : { background: 'rgba(239,68,68,0.12)', color: '#ef4444', border: '1px solid rgba(239,68,68,0.35)' };
+    ? { background: 'rgba(255,185,0,0.12)', color: '#ffb900', border: '1px solid rgba(255,185,0,0.35)' }
+    : { background: 'rgba(216,59,1,0.12)', color: '#d83b01', border: '1px solid rgba(216,59,1,0.35)' };
 
   return (
     <span style={{
@@ -234,16 +234,16 @@ export default function ManagerDashboard() {
             Verdict Breakdown
           </h3>
           <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', gap: '24px' }}>
-            <DonutRing value={ready} total={total} color="#10b981" label="Ready" sublabel={`${total > 0 ? Math.round(ready/total*100) : 0}% of cohort`} />
-            <DonutRing value={notReady} total={total} color="#ef4444" label="Not Ready" sublabel={`${total > 0 ? Math.round(notReady/total*100) : 0}% of cohort`} />
-            <DonutRing value={abstain} total={total} color="#f59e0b" label="Abstain" sublabel={`${total > 0 ? Math.round(abstain/total*100) : 0}% of cohort`} />
+            <DonutRing value={ready} total={total} color="#107c41" label="Ready" sublabel={`${total > 0 ? Math.round(ready/total*100) : 0}% of cohort`} />
+            <DonutRing value={notReady} total={total} color="#d83b01" label="Not Ready" sublabel={`${total > 0 ? Math.round(notReady/total*100) : 0}% of cohort`} />
+            <DonutRing value={abstain} total={total} color="#ffb900" label="Abstain" sublabel={`${total > 0 ? Math.round(abstain/total*100) : 0}% of cohort`} />
           </div>
 
           {/* Pass Rate Progress Bar */}
           <div style={{ marginTop: '28px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
               <span style={{ fontSize: '12px', color: 'var(--text-secondary)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Overall Pass Rate</span>
-              <span style={{ fontSize: '18px', fontWeight: 700, color: passRate >= 70 ? '#10b981' : passRate >= 40 ? '#f59e0b' : '#ef4444' }}>{passRate}%</span>
+              <span style={{ fontSize: '18px', fontWeight: 700, color: passRate >= 70 ? '#107c41' : passRate >= 40 ? '#ffb900' : '#d83b01' }}>{passRate}%</span>
             </div>
             <div style={{ height: '8px', background: 'rgba(255,255,255,0.05)', borderRadius: '100px', overflow: 'hidden' }}>
               <div style={{
@@ -251,12 +251,12 @@ export default function ManagerDashboard() {
                 width: `${passRate}%`,
                 borderRadius: '100px',
                 background: passRate >= 70
-                  ? 'linear-gradient(90deg, #10b981, #34d399)'
+                  ? 'linear-gradient(90deg, #107c41, #27854f)'
                   : passRate >= 40
-                  ? 'linear-gradient(90deg, #f59e0b, #fbbf24)'
-                  : 'linear-gradient(90deg, #ef4444, #f87171)',
+                  ? 'linear-gradient(90deg, #ffb900, #ffc83b)'
+                  : 'linear-gradient(90deg, #d83b01, #ea4a13)',
                 transition: 'width 0.8s cubic-bezier(0.4,0,0.2,1)',
-                boxShadow: passRate >= 70 ? '0 0 8px rgba(16,185,129,0.5)' : passRate >= 40 ? '0 0 8px rgba(245,158,11,0.5)' : '0 0 8px rgba(239,68,68,0.5)',
+                boxShadow: passRate >= 70 ? '0 0 8px rgba(16,124,65,0.5)' : passRate >= 40 ? '0 0 8px rgba(255,185,0,0.5)' : '0 0 8px rgba(216,59,1,0.5)',
               }} />
             </div>
           </div>
