@@ -197,14 +197,4 @@ npm run dev
 
 - **Safe Abstention (Confidence Threshold)**: The Judge agent is strictly prohibited from guessing. If its calculated confidence score drops below `0.55`, it issues an `abstain` status, flags the profile for manual HR review, and directs the learner to specific resources to bridge the gap.
 - **100% Synthetic Data**: To guarantee privacy compliance, all learner profiles, emails, performance statistics, and company workload descriptions inside `data/` and `docs/` are synthetically generated. No Personally Identifiable Information (PII) is present.
-- **Auditability**: Every chat, token, fallback event, and conflict resolution transcript is logged into `sessions.db` to ensure all AI decisions are transparent and auditable.
-
----
-
-## 🏆 Hackathon Judging Criteria Alignment
-
-- **Accuracy & Relevance (25%)**: Implements an enterprise readiness advisor grounded in three distinct Microsoft IQ layers.
-- **Reasoning & Multi-step Thinking (25%)**: Incorporates a 5-stage deliberative pipeline where agents critique and verify claims instead of summarizing immediately.
-- **Creativity & Originality (15%)**: Features a visual debate tab showing real-time disagreement, allowing managers and learners to trace *why* a specific decision was reached.
-- **User Experience (15%)**: Beautiful React dashboard featuring study progress calendars, score mapping charts, and logs side-by-side.
-- **Reliability & Safety (20%)**: Implements Judge abstention, multi-model fallback routines, and SQLite persistence.
+- **Auditability**: Every chat, token, fallback event, and conflict resolution transcript is logged into `sessions.db` to ensure all AI decisions are transparent and auditable
