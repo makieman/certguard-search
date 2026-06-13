@@ -1,0 +1,29 @@
+# Environment variables
+.env
+certguard/.env
+certguard/frontend/.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+ENV/
+env/
+
+# Databases
+*.db
+certguard/db/local_search_index.json
+
+# Node.js (frontend)
+node_modules/
+certguard/frontend/node_modules/
+dist/
+certguard/frontend/dist/
+.eslintcache
+
+# OS files
+.DS_Store
+Thumbs.db
