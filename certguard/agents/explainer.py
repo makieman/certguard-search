@@ -1,3 +1,4 @@
+import os
 import json
 from typing import Dict, Any
 from agents.llm import call_llm
@@ -8,7 +9,9 @@ class Explainer:
         Input: gaps + verification + criticism + judgment
         Output: friendly structured report, roadmap, and learning plan explanation
         """
-        pass
+        # Resolve path to work_signals.json
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        self.work_signals_path = os.path.join(base_dir, "data", "work_signals.json")
         
     def generate_explanation(self,
                              learner_data: Dict[str, Any],
@@ -21,9 +24,26 @@ class Explainer:
         certification = cert_requirements.get("certification", "General")
         learner_name = learner_data.get("name", "Learner")
         
+        # Load Work IQ activity & scheduling signals
+        work_signals = {}
+        if os.path.exists(self.work_signals_path):
+            try:
+                with open(self.work_signals_path, "r", encoding="utf-8") as f:
+                    all_signals = json.load(f)
+                    work_signals = all_signals.get(learner_name, {})
+            except Exception as e:
+                print(f"Failed to load work signals: {e}")
+
         prompt = f"""
 You are the Explainer agent in the CertGuard pipeline.
 We need to generate a beautiful, comprehensive, and friendly readiness report for the learner '{learner_name}' who is preparing for the '{certification}' exam.
+
+Work IQ (Activity & Scheduling Signals):
+- Preferred learning slots: {work_signals.get("preferred_learning_slots", "Flexible / self-paced")}
+- Dedicated focus hours: {work_signals.get("dedicated_focus_hours", "Flexible / self-paced")}
+- Cognitive peak hours: {work_signals.get("cognitive_peak_hours", "Not specified")}
+- Weekly study budget: {work_signals.get("weekly_study_budget_hours", "Not specified")} hours/week
+- Avoid active meeting times: {work_signals.get("active_meeting_hours", "None")}
 
 Inputs and assessments:
 - Learner skills: {learner_data.get("skills", [])}

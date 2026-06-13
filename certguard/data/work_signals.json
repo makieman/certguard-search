@@ -1,0 +1,23 @@
+{
+  "Alice Developer": {
+    "active_meeting_hours": "09:00 - 12:00, Monday to Wednesday",
+    "dedicated_focus_hours": "13:00 - 17:00, Thursday and Friday",
+    "preferred_learning_slots": "15:00 - 17:00, Tuesday and Thursday",
+    "cognitive_peak_hours": "Afternoon (14:00 - 17:00)",
+    "weekly_study_budget_hours": 8
+  },
+  "Bob Architect": {
+    "active_meeting_hours": "14:00 - 17:00, Tuesday and Thursday",
+    "dedicated_focus_hours": "09:00 - 12:00, Monday to Wednesday",
+    "preferred_learning_slots": "08:00 - 10:00, Friday",
+    "cognitive_peak_hours": "Morning (08:00 - 11:00)",
+    "weekly_study_budget_hours": 6
+  },
+  "Charlie Data": {
+    "active_meeting_hours": "10:00 - 12:00, daily",
+    "dedicated_focus_hours": "14:00 - 18:00, Monday and Wednesday",
+    "preferred_learning_slots": "18:00 - 20:00, Monday and Wednesday",
+    "cognitive_peak_hours": "Evening (17:00 - 20:00)",
+    "weekly_study_budget_hours": 10
+  }
+}
