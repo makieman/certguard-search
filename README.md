@@ -14,19 +14,7 @@
 
 ---
 
-## 📖 Table of Contents
-1. [Executive Summary](#-executive-summary)
-2. [The Core Innovation: Deliberative Reasoning & Disagreement](#-the-core-innovation-deliberative-reasoning--disagreement)
-3. [System Architecture](#-system-architecture)
-4. [The 5 Specialist Agents](#-the-5-specialist-agents)
-5. [Microsoft IQ Layers Integration](#-microsoft-iq-layers-integration)
-6. [Tech Stack & Architecture Details](#-tech-stack--architecture-details)
-7. [Project Directory Structure](#-project-directory-structure)
-8. [Local Development & Setup](#-local-development--setup)
-9. [Responsible AI & Safety Guardrails](#-responsible-ai--safety-guardrails)
-10. [Hackathon Judging Criteria Alignment](#-hackathon-judging-criteria-alignment)
 
----
 
 ## 🚀 Executive Summary
 
