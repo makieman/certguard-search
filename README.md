@@ -200,7 +200,7 @@ npm run dev
 
 ---
 
-## 🏆 Hackathon Judging Criteria Alignment
+## Hackathon Judging Criteria Alignment
 
 - **Accuracy & Relevance (25%)**: Implements an enterprise readiness advisor grounded in three distinct Microsoft IQ layers (Foundry, Fabric, Work) with live Microsoft Learn MCP document verification.
 - **Reasoning & Multi-step Thinking (25%)**: Incorporates a 5-stage deliberative pipeline where agents critique and verify claims instead of summarizing immediately.
