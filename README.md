@@ -156,7 +156,7 @@ certguard/
 
 ---
 
-## 💻 Local Development & Setup
+##  Local Development & Setup
 
 ### 1. Setup Virtual Environment
 ```bash
@@ -192,7 +192,7 @@ npm run dev
 
 ---
 
-## 🛡️ Responsible AI & Safety Guardrails
+##  Responsible AI & Safety Guardrails
 
 - **Safe Abstention (Confidence Threshold)**: The Judge agent is strictly prohibited from guessing. If its calculated confidence score drops below `0.55`, it issues an `abstain` status, flags the profile for manual HR review, and directs the learner to specific resources to bridge the gap.
 - **100% Synthetic Data**: To guarantee privacy compliance, all learner profiles, emails, performance statistics, and company workload descriptions inside `data/` and `docs/` are synthetically generated. No Personally Identifiable Information (PII) is present.
