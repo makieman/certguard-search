@@ -24,7 +24,7 @@
 
 Instead of relying on a single AI model to summarize a learner's profile which often suffers from overconfidence, hallucinated alignments, and generic recommendations—CertGuard introduces a **deliberative multi-agent framework**. Five specialist agents debate, challenge assumptions, cite official Azure documentation, audit discrepancies, and must reach a high-confidence consensus before granting a certification "Ready" verdict. If the evidence is weak, the system safely abstains and generates a personalized, week-by-week study plan mapped to the learner's schedule and cognitive peak hours.
 
-Our biggest competitive differentiator is the **live Microsoft Learn MCP Server Integration**: rather than relying purely on static, synthetic documentation, our Verifier agent queries the official Microsoft Learn endpoint in real-time, fetching authentic up-to-date certification guides.
+one of my  differentiator is the **live Microsoft Learn MCP Server Integration**: rather than relying purely on static, synthetic documentation, our Verifier agent queries the official Microsoft Learn endpoint in real-time, fetching authentic up-to-date certification guides.
 
 ---
 
